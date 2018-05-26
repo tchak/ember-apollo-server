@@ -83,5 +83,9 @@ module.exports = {
 
   testemMiddleware(app) {
     this.mountApolloServer(app);
+  },
+
+  blueprintsPath() {
+    return path.join(__dirname, 'blueprints');
   }
 };
