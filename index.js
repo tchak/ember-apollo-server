@@ -26,6 +26,20 @@ module.exports = {
     this.addonConfig = this.app.project.config(app.env)['apollo-server'] || {};
     this.addonBuildConfig = this.app.options['apollo-server'] || {};
 
+    let isDebugEnv = app.env === 'development' || app.env === 'test';
+    if (!this.addonBuildConfig.mocks) {
+      this.addonBuildConfig.mocks = isDebugEnv;
+    }
+    if (!(typeof this.addonBuildConfig.debug === 'boolean')) {
+      this.addonBuildConfig.debug = isDebugEnv;
+    }
+    if (!(typeof this.addonBuildConfig.introspection === 'boolean')) {
+      this.addonBuildConfig.introspection = isDebugEnv;
+    }
+    if (!(typeof this.addonBuildConfig.tracing === 'boolean')) {
+      this.addonBuildConfig.tracing = isDebugEnv;
+    }
+
     // Call super after initializing config so we can use _shouldIncludeFiles for the node assets
     this._super.included.apply(this, arguments);
 

@@ -1,4 +1,7 @@
 type Query {
   "A simple type for getting started!"
   hello: String
+
+  mock: String
+  me: User
 }

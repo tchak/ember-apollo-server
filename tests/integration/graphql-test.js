@@ -20,4 +20,30 @@ module('Unit | Service | graphql', function(hooks) {
 
     assert.equal(data.hello, 'Hello World!');
   });
+
+  test('fetch mock query', async function(assert) {
+    let data = await this.apollo.query({
+      query: gql`
+        query {
+          mock
+        }
+      `
+    });
+
+    assert.equal(data.mock, 'Hello World');
+  });
+
+  test('fetch mock user query', async function(assert) {
+    let data = await this.apollo.query({
+      query: gql`
+        query {
+          me {
+            name
+          }
+        }
+      `
+    });
+
+    assert.equal(data.me.name, 'Paul Chavard');
+  });
 });
