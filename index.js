@@ -55,13 +55,19 @@ module.exports = {
     return this.graphqlWatcher;
   },
 
-  serverMiddleware({ app }) {
-    let watcher = this.watchGraphQLFiles();
-
+  mountApolloServer(app) {
     mountServer(app, {
       dir: this.graphqlDirectory,
       config: this.addonBuildConfig,
-      watcher
+      watcher: this.watchGraphQLFiles()
     });
+  },
+
+  serverMiddleware({ app }) {
+    this.mountApolloServer(app);
+  },
+
+  testemMiddleware(app) {
+    this.mountApolloServer(app);
   }
 };
