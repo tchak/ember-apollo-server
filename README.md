@@ -1,7 +1,7 @@
 ember-apollo-server
 ==============================================================================
 
-[Short description of the addon.]
+Apollo Server inside Ember CLI
 
 Installation
 ------------------------------------------------------------------------------
