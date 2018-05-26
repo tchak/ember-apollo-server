@@ -33,8 +33,14 @@ module.exports = {
       this.graphqlDirectory = this.addonBuildConfig.directory;
     } else if (this.addonConfig.directory) {
       this.graphqlDirectory = this.addonConfig.directory;
-    } else if (app.project.pkg['ember-addon'] && app.project.pkg['ember-addon'].configPath) {
-      this.graphqlDirectory = path.resolve(app.project.root, path.join('tests', 'dummy', 'graphql'));
+    } else if (
+      app.project.pkg['ember-addon'] &&
+      app.project.pkg['ember-addon'].configPath
+    ) {
+      this.graphqlDirectory = path.resolve(
+        app.project.root,
+        path.join('tests', 'dummy', 'graphql')
+      );
     } else {
       this.graphqlDirectory = path.join(this.app.project.root, '/graphql');
     }
@@ -42,7 +48,9 @@ module.exports = {
 
   watchGraphQLFiles() {
     if (!this.graphqlWatcher) {
-      this.graphqlWatcher = sane(this.graphqlDirectory, { glob: ['**/*.mjs', '**/*.js', '**/*.gql', '**/*.graphql'] });
+      this.graphqlWatcher = sane(this.graphqlDirectory, {
+        glob: ['**/*.mjs', '**/*.js', '**/*.gql', '**/*.graphql']
+      });
     }
     return this.graphqlWatcher;
   },
