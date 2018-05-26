@@ -1,4 +1,4 @@
-ember-cli-graphql
+ember-apollo-server
 ==============================================================================
 
 [Short description of the addon.]
@@ -7,7 +7,7 @@ Installation
 ------------------------------------------------------------------------------
 
 ```
-ember install ember-cli-graphql
+ember install ember-apollo-server
 ```
 
 
@@ -23,7 +23,7 @@ Contributing
 ### Installation
 
 * `git clone <repository-url>`
-* `cd ember-cli-graphql`
+* `cd ember-apollo-server`
 * `yarn install`
 
 ### Linting

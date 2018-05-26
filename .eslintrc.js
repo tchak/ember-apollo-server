@@ -24,7 +24,10 @@ module.exports = {
         'testem.js',
         'ember-cli-build.js',
         'config/**/*.js',
-        'tests/dummy/config/**/*.js'
+        'tests/dummy/config/**/*.js',
+        'lib/**/*.js',
+        'graphql/**/*.js',
+        'tests/dummy/graphql/**/*.js'
       ],
       excludedFiles: [
         'app/**',
