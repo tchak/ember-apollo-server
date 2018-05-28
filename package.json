@@ -27,7 +27,7 @@
     "ember-cli-babel": "^6.14.0",
     "ember-cli-string-utils": "^1.1.0",
     "esm": "^3.0.37",
-    "glob": "^4.0.5",
+    "glob": "^7.1.2",
     "graphql": "^0.13.2",
     "graphql-playground-middleware-express": "^1.6.3",
     "sane": "^2.5.2"
@@ -55,6 +55,7 @@
     "ember-source": "~3.0.0",
     "ember-source-channel-url": "^1.0.1",
     "ember-try": "^0.2.23",
+    "eslint": "^4.19.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^5.2.1",
