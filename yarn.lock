@@ -3918,7 +3918,7 @@ graphql-playground-html@1.5.5:
   dependencies:
     graphql-config "2.0.0"
 
-graphql-playground-middleware-express@^1.6.2:
+graphql-playground-middleware-express@^1.6.2, graphql-playground-middleware-express@^1.6.3:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/graphql-playground-middleware-express/-/graphql-playground-middleware-express-1.6.3.tgz#0f75b5b139edb2d1079208af59d158caba2309d1"
   dependencies:
