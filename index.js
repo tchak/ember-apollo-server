@@ -1,7 +1,7 @@
 'use strict';
 const path = require('path');
 const sane = require('sane');
-const mountServer = require('./lib/mount-server');
+const { mountServer } = require('./lib/mount-server');
 
 module.exports = {
   name: 'ember-apollo-server',
@@ -40,7 +40,6 @@ module.exports = {
       this.addonBuildConfig.tracing = isDebugEnv;
     }
 
-    // Call super after initializing config so we can use _shouldIncludeFiles for the node assets
     this._super.included.apply(this, arguments);
 
     if (this.addonBuildConfig.directory) {
@@ -69,11 +68,12 @@ module.exports = {
     return this.graphqlWatcher;
   },
 
-  mountApolloServer(app) {
+  mountApolloServer(app, gui = true) {
     mountServer(app, {
       dir: this.graphqlDirectory,
       config: this.addonBuildConfig,
-      watcher: this.watchGraphQLFiles()
+      watcher: this.watchGraphQLFiles(),
+      gui
     });
   },
 
@@ -82,7 +82,7 @@ module.exports = {
   },
 
   testemMiddleware(app) {
-    this.mountApolloServer(app);
+    this.mountApolloServer(app, false);
   },
 
   blueprintsPath() {
