@@ -25,5 +25,12 @@ module.exports = {
         }
       }
     };
+  },
+
+  afterInstall() {
+    return this.addAddonToProject({
+      name: 'ember-apollo-client',
+      target: '^1.0.1'
+    });
   }
 };
