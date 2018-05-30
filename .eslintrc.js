@@ -18,6 +18,7 @@ module.exports = {
       files: [
         'index.js',
         'testem.js',
+        'load-server-config.js',
         'ember-cli-build.js',
         'config/**/*.js',
         'tests/dummy/config/**/*.js',
@@ -42,6 +43,18 @@ module.exports = {
       rules: Object.assign({}, require('eslint-plugin-node').configs.recommended.rules, {
         // add your custom rules and overrides for node files here
       })
+    },
+    {
+      files: [
+        'tests/dummy/graphql/**/*.js'
+      ],
+      rules: {
+        'node/no-unsupported-features': 0
+      },
+      parserOptions: {
+        sourceType: 'module',
+        ecmaVersion: 2017
+      }
     }
   ]
 };
