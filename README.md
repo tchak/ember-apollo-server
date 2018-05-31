@@ -1,6 +1,10 @@
 ember-apollo-server
 ==============================================================================
 
+[![Build Status](https://travis-ci.com/tchak/ember-apollo-server.svg?branch=master)](https://travis-ci.com/tchak/ember-apollo-server)
+[![Ember Observer Score](http://emberobserver.com/badges/ember-apollo-server.svg)](http://emberobserver.com/addons/ember-apollo-server)
+[![npm version](https://badge.fury.io/js/ember-apollo-server.svg)](http://badge.fury.io/js/ember-apollo-server)
+
 Apollo Server inside Ember CLI
 
 Installation
