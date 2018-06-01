@@ -30,6 +30,7 @@
     "glob": "^7.1.2",
     "graphql": "^0.13.2",
     "graphql-playground-middleware-express": "^1.6.3",
+    "network-adapter": "^0.1.1",
     "node-fetch": "^2.1.2",
     "sane": "^2.5.2"
   },
@@ -65,7 +66,7 @@
     "prettier": "^1.12.1"
   },
   "engines": {
-    "node": "6.* || >= 7.*"
+    "node": ">= 8.*"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
