@@ -29,6 +29,7 @@
     "esm": "^3.0.37",
     "glob": "^7.1.2",
     "graphql": "^0.13.2",
+    "graphql-iso-date": "^3.5.0",
     "graphql-playground-middleware-express": "^1.7.0",
     "node-fetch": "^2.1.2",
     "sane": "^2.5.2"

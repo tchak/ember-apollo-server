@@ -2,6 +2,10 @@ type Query {
   "A simple type for getting started!"
   hello: String
 
+  nowDate: Date
+  nowTime: Time
+  nowDateTime: DateTime
+
   mock: String
   me: User
 }
