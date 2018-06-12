@@ -22,11 +22,11 @@ module.exports = {
       } while (current.parent.parent && (current = current.parent));
     }
 
-    this.app = app;
-    this.addonConfig = this.app.project.config(app.env)['apollo-server'] || {};
-    this.addonBuildConfig = this.app.options['apollo-server'] || {};
+    const clientConfig = app.project.config(app.env)['apollo'] || {};
+    this.addonBuildConfig = app.options['apollo-server'] || {};
 
-    let isDebugEnv = app.env === 'development' || app.env === 'test';
+    const isDebugEnv = app.env === 'development' || app.env === 'test';
+
     if (!this.addonBuildConfig.mocks) {
       this.addonBuildConfig.mocks = isDebugEnv;
     }
@@ -40,12 +40,13 @@ module.exports = {
       this.addonBuildConfig.tracing = isDebugEnv;
     }
 
+    this.graphqlPath =
+      this.addonBuildConfig.path || clientConfig.apiURL || '/graphql';
+
     this._super.included.apply(this, arguments);
 
     if (this.addonBuildConfig.directory) {
       this.graphqlDirectory = this.addonBuildConfig.directory;
-    } else if (this.addonConfig.directory) {
-      this.graphqlDirectory = this.addonConfig.directory;
     } else if (
       app.project.pkg['ember-addon'] &&
       app.project.pkg['ember-addon'].configPath
@@ -55,7 +56,7 @@ module.exports = {
         path.join('tests', 'dummy', 'graphql')
       );
     } else {
-      this.graphqlDirectory = path.join(this.app.project.root, '/graphql');
+      this.graphqlDirectory = path.join(app.project.root, 'graphql');
     }
   },
 
@@ -73,6 +74,7 @@ module.exports = {
       dir: this.graphqlDirectory,
       config: this.addonBuildConfig,
       watcher: this.watchGraphQLFiles(),
+      path: this.graphqlPath,
       gui
     });
   },
@@ -83,9 +85,5 @@ module.exports = {
 
   testemMiddleware(app) {
     this.mountApolloServer(app, false);
-  },
-
-  blueprintsPath() {
-    return path.join(__dirname, 'blueprints');
   }
 };
