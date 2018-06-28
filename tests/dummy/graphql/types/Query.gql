@@ -8,4 +8,6 @@ type Query {
 
   mock: String
   me: User
+
+  people: [String]
 }

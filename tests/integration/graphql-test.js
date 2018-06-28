@@ -61,4 +61,16 @@ module('Unit | Service | graphql', function(hooks) {
     assert.ok(data.nowDate.match(/\d{4}-\d{2}-\d{2}/)); // 2018-06-12
     assert.ok(data.nowTime.match(/\d{2}:\d{2}:\d{2}.\d*Z/)); // 21:08:45.812Z
   });
+
+  test('DataSource#people', async function(assert) {
+    let data = await this.apollo.query({
+      query: gql`
+        query {
+          people
+        }
+      `
+    });
+
+    assert.deepEqual(data.people, ['Paul']);
+  });
 });
