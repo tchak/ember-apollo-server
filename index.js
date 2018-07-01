@@ -26,6 +26,7 @@ module.exports = {
     this.addonBuildConfig = app.options['apollo-server'] || {};
 
     const isDebugEnv = app.env === 'development' || app.env === 'test';
+    this.modulesCache = !isDebugEnv;
 
     if (!this.addonBuildConfig.mocks) {
       this.addonBuildConfig.mocks = isDebugEnv;
@@ -75,6 +76,7 @@ module.exports = {
       config: this.addonBuildConfig,
       watcher: this.watchGraphQLFiles(),
       path: this.graphqlPath,
+      cache: this.modulesCache,
       gui
     });
   },
